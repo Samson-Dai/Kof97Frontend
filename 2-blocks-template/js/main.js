@@ -188,7 +188,6 @@ jQuery(document).ready(function($){
 	    	var rank = JSON.parse(xhr.responseText)
 	        rank = rank["rank"]
 	        $.each(rank, function( index, value ) {
-			  console.log( index + ": " + value );
 			  $("#rank_table").append('<tr><td>'+index+'</td><td>'+value['id']+'</td><td>'+value['name']+'</td><td>'+value['score']+'</td></tr>')
 			});
 	    }
