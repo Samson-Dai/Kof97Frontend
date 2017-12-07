@@ -75,7 +75,7 @@ jQuery(document).ready(function($){
 			    xhr.onload = function(e){
 			        var temp = JSON.parse(xhr.responseText)
 			        player_id =  temp["id"]
-			        updatePlayer(player_id,name, age)
+			        updatePlayer(player_id,name, age,2000)
 			        alert("user added")
 			    }
 			    xhr.onerror = function(e){
@@ -102,7 +102,8 @@ jQuery(document).ready(function($){
 			        var temp = JSON.parse(xhr.responseText)
 			        name =  temp["name"]
 			        age =  temp["age"]
-			        updatePlayer(player_id,name, age)
+			        score = temp['score']
+			        updatePlayer(player_id,name, age, score)
 			        alert("user changed")
 			    }
 			    xhr.onerror = function(e){
@@ -199,13 +200,14 @@ jQuery(document).ready(function($){
 	})
 
 
-	function updatePlayer(player_id, player_name, player_age){
+	function updatePlayer(player_id, player_name, player_age, score){
 		$("body").attr("playerid",player_id)
 		$("body").attr("playername",player_name)
 		$("#user-info").html('')
 		$("#user-info").append("<span> Current player id is:"+ player_id+"</span>")
 		$("#user-info").append("<span> Current player name is:"+ player_name+"</span>")
 		$("#user-info").append("<span> Current player age is:"+ player_age+"</span>")
+		$("#user-info").append("<span> Current player score is:"+ score+"</span>")
 	}
 
 
