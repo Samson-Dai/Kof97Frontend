@@ -501,8 +501,8 @@ input.alert_border:hover{
 
 
 #rank_table{
-  width: 100%
-  margin:auto;
+  width: 100%;
+  margin: 20px;
 }
 
 #rank_table tr:nth-child(even){
