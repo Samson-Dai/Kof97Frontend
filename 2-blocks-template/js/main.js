@@ -183,12 +183,14 @@ jQuery(document).ready(function($){
 	    xhr.open("GET","http://student04.cse.nd.edu:51024/rank/",true)  
 
 	    xhr.onload = function(e){
-	    	var temp = JSON.parse(xhr.responseText)
-	        console.log(xhr.responseText)
+	    	var rank = JSON.parse(xhr.responseText)
+	        rank = rank["rank"]
+	        $.each(rank, function( index, value ) {
+			  console.log( index + ": " + value );
+			});
 	    }
 	    xhr.onerror = function(e){
 	        console.log(xhr.statusText);
-	        console.log(xhr.responseText);
 
 	    }
 	    xhr.send()
