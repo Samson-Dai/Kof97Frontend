@@ -187,7 +187,7 @@ jQuery(document).ready(function($){
 	        console.log(xhr.responseText)
 	    }
 	    xhr.onerror = function(e){
-	        console.error(xhr.statusText);
+	        console.log(xhr.statusText);
 	    }
 	    xhr.send()
 	})
