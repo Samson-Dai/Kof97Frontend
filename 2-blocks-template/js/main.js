@@ -94,22 +94,8 @@ jQuery(document).ready(function($){
 			}
 			else{
 				$("#player_id").val('');
-			    
-			    var xhr = new XMLHttpRequest()
-			    xhr.open("GET","http://student04.cse.nd.edu:51024/players/"+player_id,true)  
-
-			    xhr.onload = function(e){
-			        var temp = JSON.parse(xhr.responseText)
-			        name =  temp["name"]
-			        age =  temp["age"]
-			        score = temp['score']
-			        updatePlayer(player_id,name, age, score)
-			        alert("user changed")
-			    }
-			    xhr.onerror = function(e){
-			        console.error(xhr.statusText);
-			    }
-			    xhr.send()			
+				requstUser(player_id)
+			    alert("user changed");
 			}
 	})
 
@@ -142,7 +128,7 @@ jQuery(document).ready(function($){
 			    xhr.onload = function(e){
 			        var temp = JSON.parse(xhr.responseText)
 			        gameID =  temp["gameID"]
-			        
+			        requstUser($("body").attr("playerid"))
 			        alert("Game added, the id is "+ gameID)
 			    }
 			    xhr.onerror = function(e){
@@ -168,6 +154,7 @@ jQuery(document).ready(function($){
 			    xhr.open("DELETE","http://student04.cse.nd.edu:51024/games/"+game_id,true)  
 
 			    xhr.onload = function(e){
+			    	requstUser($("body").attr("playerid"))
 			        alert("Game deleted.")
 			    }
 			    xhr.onerror = function(e){
@@ -208,6 +195,24 @@ jQuery(document).ready(function($){
 		$("#user-info").append("<span> Current player name is:"+ player_name+"</span>")
 		$("#user-info").append("<span> Current player age is:"+ player_age+"</span>")
 		$("#user-info").append("<span> Current player score is:"+ score+"</span>")
+	}
+
+	function requstUser(player_id){
+		var xhr = new XMLHttpRequest()
+	    xhr.open("GET","http://student04.cse.nd.edu:51024/players/"+player_id,true)  
+
+	    xhr.onload = function(e){
+	        var temp = JSON.parse(xhr.responseText)
+	        name =  temp["name"]
+	        age =  temp["age"]
+	        score = temp['score']
+	        updatePlayer(player_id,name, age, score)
+	        
+	    }
+	    xhr.onerror = function(e){
+	        console.error(xhr.statusText);
+	    }
+	    xhr.send()	
 	}
 
 
