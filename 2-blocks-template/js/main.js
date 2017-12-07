@@ -188,6 +188,8 @@ jQuery(document).ready(function($){
 	    }
 	    xhr.onerror = function(e){
 	        console.log(xhr.statusText);
+	        console.log(xhr.responseText);
+
 	    }
 	    xhr.send()
 	})
