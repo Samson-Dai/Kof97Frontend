@@ -108,7 +108,7 @@ jQuery(document).ready(function($){
 			    xhr.onerror = function(e){
 			        console.error(xhr.statusText);
 			    }
-			    xhr.send(new_player)			
+			    xhr.send()			
 			}
 	})
 
@@ -172,7 +172,7 @@ jQuery(document).ready(function($){
 			    xhr.onerror = function(e){
 			        console.error(xhr.statusText);
 			    }
-			    xhr.send(new_player)			
+			    xhr.send()			
 			}
 	})
 
@@ -189,7 +189,7 @@ jQuery(document).ready(function($){
 	    xhr.onerror = function(e){
 	        console.error(xhr.statusText);
 	    }
-	    xhr.send(new_player)
+	    xhr.send()
 	})
 
 
