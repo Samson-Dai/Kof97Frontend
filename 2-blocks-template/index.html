@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,900' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
+	<link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
+	<script src="js/modernizr.js"></script> <!-- Modernizr -->
+</head>
+<body playerid="" playername="None">
+	<title>Kof97</title>
+	<main>
+		<div class="cd-image-block">
+			<ul class="cd-images-list">
+				<li class="is-selected">
+					<a href="#0">
+					</a>
+				</li>
+
+				<li>
+					<a href="#0">
+						
+					</a>
+				</li>
+
+				<li>
+					<a href="#0">
+						
+					</a>
+				</li>
+
+				<li>
+					<a href="#0">
+						
+					</a>
+				</li>
+			</ul> <!-- .cd-images-list -->
+		</div> <!-- .cd-image-block -->
+
+		<div class="cd-content-block">
+			<ul>
+				<li class="is-selected">
+					<div>
+						<h2>Add A New Player</h2>
+						<input type="text" name="playname" placeholder="Name">
+						<input type="text" name="playerage" placeholder="Age">
+						<button id="add-user-btn">Submit</button>
+						
+					</div> 
+				</li>
+
+				<li>
+					<div>
+						<div>
+						<h2>Change/ Choose Player</h2>
+						<input type="text" name="playerid" placeholder="Player ID">
+						<button id="Choose-user-btn">Submit</button>
+						<h4 class="player-greeting"></h4>
+					</div>
+					<div class="gamediv">
+						<h2>Record game</h2>
+						<input type="text" name="oppid" placeholder="Opponent ID">
+						<button id="Choose-opp-btn">Save</button>
+					</div>
+					</div> 
+				</li>
+
+				<li>
+					<div>
+						<h2>Delete A Game</h2>
+						<input type="text" name="gameis" placeholder="Game ID">
+						<button id="delete-game-btn">Delete</button>
+						
+					</div> 
+				</li>
+
+				<li>
+					<div>
+						<h2>Get Rank</h2>
+						<div class="current_rank"></div>
+						<button id="get-ranking">Refresh</button>
+					</div> 
+				</li>
+			</ul>
+
+			<button class="cd-close">Close</button>
+		</div> <!-- .cd-content-block -->
+
+		<ul class="block-navigation">
+			<li><button class="cd-prev inactive">&larr; Prev</button></li>
+			<li><button class="cd-next">Next &rarr;</button></li>
+		</ul> <!-- .block-navigation -->
+	</main>	<!-- .cd-main -->
+	
+<script src="js/jquery-2.1.4.js"></script>
+<script src="js/main.js"></script> <!-- Resource jQuery -->
+</body>
+</html>
