@@ -130,8 +130,8 @@ jQuery(document).ready(function($){
 				player_id = $("body").attr("playerid");
 				winner = $('input[name="winner"]:checked').val();
 				var new_game = {
-			        "player1": player_id,
-			        "player2": opp_id,
+			        "player1": parseInt(player_id),
+			        "player2": parseInt(opp_id),
 			        "result" : parseInt(winner)
 			    }
 			    new_game = JSON.stringify(new_game)
