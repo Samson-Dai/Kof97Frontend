@@ -132,7 +132,7 @@ jQuery(document).ready(function($){
 				var new_game = {
 			        "player1": player_id,
 			        "player2": opp_id,
-			        "result" : winner
+			        "result" : parseInt(winner)
 			    }
 			    new_game = JSON.stringify(new_game)
 			    var xhr = new XMLHttpRequest()
@@ -198,6 +198,7 @@ jQuery(document).ready(function($){
 	function updatePlayer(player_id, player_name, player_age){
 		$("body").attr("playerid",player_id)
 		$("body").attr("playername",player_name)
+		$("#user-info").html('')
 		$("#user-info").append("<span> Current player id is:"+ player_id+"</span>")
 		$("#user-info").append("<span> Current player name is:"+ player_name+"</span>")
 		$("#user-info").append("<span> Current player age is:"+ player_age+"</span>")
