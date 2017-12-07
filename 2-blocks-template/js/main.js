@@ -46,6 +46,162 @@ jQuery(document).ready(function($){
 		}
 	});
 
+
+	//New added 
+	$("#add-user-btn").click(function(){
+			$("#playername").removeClass("alert_border");
+			$("#playerage").removeClass("alert_border");
+			name = $("#playername").val();
+			age = $("#playerage").val();
+
+			if (name==""){
+				$("#playername").addClass("alert_border");
+			}
+			if (age==""){
+				$("#playerage").addClass("alert_border");
+			}
+			if(age && name){
+				$("#playername").val('');
+				$("#playerage").val('');
+
+				var new_player = {
+			        "name": name,
+			        "age": age[0],
+			    }
+			    new_player = JSON.stringify(new_player)
+			    var xhr = new XMLHttpRequest()
+			    xhr.open("POST","http://student04.cse.nd.edu:51024/players/",true)  
+
+			    xhr.onload = function(e){
+			        var temp = JSON.parse(xhr.responseText)
+			        player_id =  temp["id"]
+			        updatePlayer(player_id,name, age)
+			        alert("user added")
+			    }
+			    xhr.onerror = function(e){
+			        console.error(xhr.statusText);
+			    }
+			    xhr.send(new_player)
+			}
+	})
+
+	$("#choose-user-btn").click(function(){
+			$("#player_id").removeClass("alert_border");
+			player_id = $("#player_id").val();
+			
+			if (player_id==""){
+				$("#player_id").addClass("alert_border");
+			}
+			else{
+				$("#player_id").val('');
+			    
+			    var xhr = new XMLHttpRequest()
+			    xhr.open("GET","http://student04.cse.nd.edu:51024/players/"+player_id,true)  
+
+			    xhr.onload = function(e){
+			        var temp = JSON.parse(xhr.responseText)
+			        name =  temp["name"]
+			        age =  temp["age"]
+			        updatePlayer(player_id,name, age)
+			        alert("user changed")
+			    }
+			    xhr.onerror = function(e){
+			        console.error(xhr.statusText);
+			    }
+			    xhr.send(new_player)			
+			}
+	})
+
+
+	$("#choose-opp-btn").click(function(){
+		if($("body").attr("playerid")==""){
+			$("#player_id").addClass("alert_border");
+			alert("Please choose a player first.")
+		}
+		else{
+			$("#opp_id").removeClass("alert_border");
+			opp_id = $("#opp_id").val();
+			
+			if (opp_id==""){
+				$("#opp_id").addClass("opp_id");
+			}
+			else{
+				$("#opp_id").val('');
+				player_id = $("body").attr("playerid");
+				winner = $('input[name="winner"]:checked').val();
+				var new_game = {
+			        "player1": player_id,
+			        "player2": opp_id,
+			        "result" : winner
+			    }
+			    new_game = JSON.stringify(new_game)
+			    var xhr = new XMLHttpRequest()
+			    xhr.open("POST","http://student04.cse.nd.edu:51024/games/",true)  
+
+			    xhr.onload = function(e){
+			        var temp = JSON.parse(xhr.responseText)
+			        gameID =  temp["gameID"]
+			        
+			        alert("Game added, the id is "+ gameID)
+			    }
+			    xhr.onerror = function(e){
+			        console.error(xhr.statusText);
+			    }
+			    xhr.send(new_game)
+			}
+		}
+	})
+
+
+	$("#delete-game-btn").click(function(){
+			$("#game_id").removeClass("alert_border");
+			game_id = $("#game_id").val();
+			
+			if (game_id==""){
+				$("#game_id").addClass("alert_border");
+			}
+			else{
+				$("#game_id").val('');
+			    
+			    var xhr = new XMLHttpRequest()
+			    xhr.open("DELETE","http://student04.cse.nd.edu:51024/games/"+game_id,true)  
+
+			    xhr.onload = function(e){
+			        alert("Game deleted.")
+			    }
+			    xhr.onerror = function(e){
+			        console.error(xhr.statusText);
+			    }
+			    xhr.send(new_player)			
+			}
+	})
+
+
+	$("#get-ranking").click(function(){
+	
+	    var xhr = new XMLHttpRequest()
+	    xhr.open("GET","http://student04.cse.nd.edu:51024/rank/",true)  
+
+	    xhr.onload = function(e){
+	    	var temp = JSON.parse(xhr.responseText)
+	        console.log(xhr.responseText)
+	    }
+	    xhr.onerror = function(e){
+	        console.error(xhr.statusText);
+	    }
+	    xhr.send(new_player)
+	})
+
+
+	function updatePlayer(player_id, player_name, player_age){
+		$("body").attr("playerid",playerid)
+		$("body").attr("playername",playername)
+		$("#user-info").append("<span> Current player id is:"+ playerid+"</span>")
+		$("#user-info").append("<span> Current player name is:"+ player_name+"</span>")
+		$("#user-info").append("<span> Current player age is:"+ player_age+"</span>")
+	}
+
+
 	//on desktop - update visible project on keydown
 	$(document).on('keydown', function(event){
 		var device = MQ();

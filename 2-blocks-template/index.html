@@ -45,8 +45,8 @@
 				<li class="is-selected">
 					<div>
 						<h2>Add A New Player</h2>
-						<input type="text" name="playname" placeholder="Name">
-						<input type="text" name="playerage" placeholder="Age">
+						<input id="playername" type="text" placeholder="Name">
+						<input id="playerage" type="text" placeholder="Age">
 						<button id="add-user-btn">Submit</button>
 						
 					</div> 
@@ -56,14 +56,23 @@
 					<div>
 						<div>
 						<h2>Change/ Choose Player</h2>
-						<input type="text" name="playerid" placeholder="Player ID">
-						<button id="Choose-user-btn">Submit</button>
-						<h4 class="player-greeting"></h4>
+						<input type="text" id="player_id" placeholder="Player ID">
+						<button id="choose-user-btn">Submit</button>
+						<div class="radio_div" id="user-info"></div>
 					</div>
 					<div class="gamediv">
 						<h2>Record game</h2>
-						<input type="text" name="oppid" placeholder="Opponent ID">
-						<button id="Choose-opp-btn">Save</button>
+						<input type="text" id="opp_id" placeholder="Opponent ID">
+						<div class="radio_div">
+						  <span>Please select the winner:</span>
+						    <input type="radio" id="player-winner"
+						           name="winner" value=1 checked="checked">
+						    <label for="player-winner">Player</label>
+						    <input type="radio" id="opponent-winner"
+						           name="winner" value=2>
+						    <label for="opponent-winner">Opponent</label>
+						 </div>
+						<button id="choose-opp-btn">Save</button>
 					</div>
 					</div> 
 				</li>
@@ -71,7 +80,7 @@
 				<li>
 					<div>
 						<h2>Delete A Game</h2>
-						<input type="text" name="gameis" placeholder="Game ID">
+						<input type="text" id="game_id" placeholder="Game ID">
 						<button id="delete-game-btn">Delete</button>
 						
 					</div> 
@@ -94,8 +103,9 @@
 			<li><button class="cd-next">Next &rarr;</button></li>
 		</ul> <!-- .block-navigation -->
 	</main>	<!-- .cd-main -->
-	
+
 <script src="js/jquery-2.1.4.js"></script>
+<script type="text/javascript" src="js/json2.js"></script>
 <script src="js/main.js"></script> <!-- Resource jQuery -->
 </body>
 </html>

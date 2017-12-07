@@ -457,6 +457,7 @@ input[type="text"]:focus{
     border: solid 1px #617596;
 }
 
+
 li{
   text-align: center;
 }
@@ -477,7 +478,23 @@ div.gamediv{
   margin-top: 100px;
 }
 
+div.radio_div{
+  margin-bottom: 20px;
+}
+
+div.radio_div span{
+  display: block;
+}
+
 .cd-images-list a h2{
   background: #161b23cf;
   font-family: "Euro Comic";
+}
+
+input.alert_border{
+  border: solid 1px #f34d4d;
+}
+
+input.alert_border:hover{
+  border: solid 1px #f34d4d;
 }
