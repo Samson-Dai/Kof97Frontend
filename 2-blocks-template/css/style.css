@@ -498,3 +498,11 @@ input.alert_border{
 input.alert_border:hover{
   border: solid 1px #f34d4d;
 }
+
+#rank_table tr:nth-child(even){
+  background: #fff;
+}
+
+#rank_table tr:nth-child(odd) {
+  background: #c3cbd8;
+}

@@ -183,10 +183,13 @@ jQuery(document).ready(function($){
 	    xhr.open("GET","http://student04.cse.nd.edu:51024/rank/",true)  
 
 	    xhr.onload = function(e){
+	    	$("#rank_table").html('')
+	    	$("#rank_table").append('<tr><th>Rank</th><th>ID</th><th>Name</th><th>Score</th></tr>')
 	    	var rank = JSON.parse(xhr.responseText)
 	        rank = rank["rank"]
 	        $.each(rank, function( index, value ) {
 			  console.log( index + ": " + value );
+			  $("#rank_table").append('<tr><td>'+index+'</td><td>'+value['id']+'</td><td>'+value['name']+'</td><td>'+value['score']+'</td></tr>')
 			});
 	    }
 	    xhr.onerror = function(e){
