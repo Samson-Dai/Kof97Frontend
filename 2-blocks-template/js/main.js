@@ -89,7 +89,7 @@ jQuery(document).ready(function($){
 			$("#player_id").removeClass("alert_border");
 			player_id = $("#player_id").val();
 			
-			if (player_id==""){
+			if (!player_id){
 				$("#player_id").addClass("alert_border");
 			}
 			else{
@@ -196,8 +196,8 @@ jQuery(document).ready(function($){
 
 
 	function updatePlayer(player_id, player_name, player_age){
-		$("body").attr("playerid",playerid)
-		$("body").attr("playername",playername)
+		$("body").attr("playerid",player_id)
+		$("body").attr("playername",player_name)
 		$("#user-info").append("<span> Current player id is:"+ playerid+"</span>")
 		$("#user-info").append("<span> Current player name is:"+ player_name+"</span>")
 		$("#user-info").append("<span> Current player age is:"+ player_age+"</span>")
